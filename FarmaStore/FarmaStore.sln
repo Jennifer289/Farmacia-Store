@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmaStore.WebAdmin", "FarmaStore.WebAdmin\FarmaStore.WebAdmin.csproj", "{38E0B463-6E52-4C69-BEB5-BC384A1138FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmaStore.Win", "FarmaStore.Win\FarmaStore.Win.csproj", "{BE8FC613-E931-4E60-AC9A-2FB6952B4B04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmaStore.Web", "FarmaStore.Web\FarmaStore.Web.csproj", "{2AA3EFBF-A16B-4564-BEFF-B0864397CD49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmaStore.BL", "FarmaStore.BL\FarmaStore.BL.csproj", "{E5F8F944-CFF4-4111-B442-83FB2CA49499}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38E0B463-6E52-4C69-BEB5-BC384A1138FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E0B463-6E52-4C69-BEB5-BC384A1138FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E0B463-6E52-4C69-BEB5-BC384A1138FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E0B463-6E52-4C69-BEB5-BC384A1138FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8FC613-E931-4E60-AC9A-2FB6952B4B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8FC613-E931-4E60-AC9A-2FB6952B4B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8FC613-E931-4E60-AC9A-2FB6952B4B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8FC613-E931-4E60-AC9A-2FB6952B4B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA3EFBF-A16B-4564-BEFF-B0864397CD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA3EFBF-A16B-4564-BEFF-B0864397CD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA3EFBF-A16B-4564-BEFF-B0864397CD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA3EFBF-A16B-4564-BEFF-B0864397CD49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F8F944-CFF4-4111-B442-83FB2CA49499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F8F944-CFF4-4111-B442-83FB2CA49499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F8F944-CFF4-4111-B442-83FB2CA49499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F8F944-CFF4-4111-B442-83FB2CA49499}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
