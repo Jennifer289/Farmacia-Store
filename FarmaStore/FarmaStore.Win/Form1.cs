@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FarmaStore.BL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,19 @@ namespace FarmaStore.Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hola");
-        }
+            var productosBL = new ProductosBL();
+            var listaproductos = productosBL.ObtenerProductos();
+
+            foreach (var producto in listaproductos)
+            {
+                MessageBox.Show(producto.Descripcion);
+
+            }
+    }
     }
 }
+
+
+
+
+

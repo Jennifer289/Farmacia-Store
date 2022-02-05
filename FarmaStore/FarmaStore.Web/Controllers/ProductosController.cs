@@ -1,4 +1,5 @@
 ﻿
+using FarmaStore.BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,11 @@ namespace FarmaStore.Web.Controllers
         // GET: Productos
         public ActionResult Index()
         {
+            var productosBL = new ProductosBL();
+            var listaProductos = productosBL.ObtenerProductos();
 
-            return View();
+            return View(listaProductos);
+
         }
     }
 }
