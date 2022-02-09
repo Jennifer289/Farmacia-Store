@@ -9,16 +9,18 @@ namespace FarmaStore.BL
     public class ProductosBL
     {
         Contexto _contexto;
+        public List<Producto> ListadeProductos { get; set; }
 
         public ProductosBL()
         {
             _contexto = new Contexto();
+            ListadeProductos = new List<Producto>();
         }
          public List<Producto> ObtenerProductos()
         {
-          
 
-            return _contexto.Prooductos.ToList(); ;
+            ListadeProductos = _contexto.Prooductos.ToList();
+            return ListadeProductos;
         }
 
         
