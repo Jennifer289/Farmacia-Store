@@ -27,5 +27,37 @@ namespace FarmaStore.WebAdmin.Controllers
 
             return View(listadeproductos);
         }
+
+        public ActionResult Crear()
+        {
+            var nuevoProducto = new Producto();
+
+            return View(nuevoProducto);
+        }
+
+        [HttpPost]
+        public ActionResult Crear(Producto producto)
+        {
+            _productosBL.GuardarProducto(producto);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Editar(int id)
+        {
+            var producto = _productosBL.ObtenerProducto(id);
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Producto producto)
+        {
+            _productosBL.GuardarProducto(producto);
+
+            return RedirectToAction("Index");
+
+        }
     }
 }

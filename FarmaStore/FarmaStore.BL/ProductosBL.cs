@@ -23,7 +23,31 @@ namespace FarmaStore.BL
             return ListadeProductos;
         }
 
-        
-        
+        public void GuardarProducto(Producto producto)
+        {
+            if(producto.Id == 0 )
+            {
+                _contexto.Prooductos.Add(producto);
+
+            }else
+            {
+                var productoExistente = _contexto.Prooductos.Find(producto.Id);
+                productoExistente.Descripcion = producto.Descripcion;
+                productoExistente.Precio = producto.Precio;
+            }
+
+
+            _contexto.SaveChanges();
+        }
+
+        public Producto ObtenerProducto(int id)
+        {
+            var producto = _contexto.Prooductos.Find(id);
+
+            return producto;
+        }
+
+
+
     }
 }
