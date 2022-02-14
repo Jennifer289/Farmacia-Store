@@ -47,7 +47,13 @@ namespace FarmaStore.BL
             return producto;
         }
 
+        public void EliminarProducto(int id)
+        {
+            var producto = _contexto.Prooductos.Find(id);
 
+            _contexto.Prooductos.Remove(producto);
+            _contexto.SaveChanges();
+        }
 
     }
 }
