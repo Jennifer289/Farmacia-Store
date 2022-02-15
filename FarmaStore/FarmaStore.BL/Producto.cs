@@ -9,9 +9,16 @@ namespace FarmaStore.BL
     public class Producto
     {
 
-    public int Id { get; set; }
+        public Producto()
+        {
+            Activo = true;
+
+        }
+        public int Id { get; set; }
     public string Descripcion { get; set; }
     public double Precio { get; set; }
-   
+        public  Categoria Categorias { get; set; }
+        public bool Activo { get; set; }
+
     }
 }

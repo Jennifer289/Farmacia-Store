@@ -23,5 +23,6 @@ Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\FarmaStoreDB.m
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
         public DbSet<Producto> Prooductos { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
     }
 }

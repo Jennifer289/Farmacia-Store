@@ -40,6 +40,16 @@ namespace FarmaStore.BL
             _contexto.SaveChanges();
         }
 
+        public object ObtenerCategoria(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GuardarCategoria(Categoria producto)
+        {
+            throw new NotImplementedException();
+        }
+
         public Producto ObtenerProducto(int id)
         {
             var producto = _contexto.Prooductos.Find(id);
@@ -55,5 +65,9 @@ namespace FarmaStore.BL
             _contexto.SaveChanges();
         }
 
+        public void EliminarCategoria(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
