@@ -11,6 +11,7 @@ namespace FarmaStore.WebAdmin.Controllers
     {
 
         ProductosBL _productosBL;
+        private object _Categorias;
 
         public ProductosController()
         {
@@ -38,9 +39,22 @@ namespace FarmaStore.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Crear(Producto producto)
         {
-            _productosBL.GuardarProducto(producto);
 
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+
+                if (producto.categoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "seleccione una categoria");
+                    return View(producto);
+                }
+                _productosBL.GuardarProducto(producto);
+
+                return RedirectToAction("Index");
+            }
+
+
+            return View(producto);
         }
 
         public ActionResult Editar(int id)
