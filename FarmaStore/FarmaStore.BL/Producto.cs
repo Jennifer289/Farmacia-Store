@@ -17,15 +17,21 @@ namespace FarmaStore.BL
 
         }
         public int Id { get; set; }
+
+        [Display(Name = "Descripción")]
         [Required(ErrorMessage = "Ingrese la descripcion")]
-        [MinLength (3, ErrorMessage = "Ingrese minimo de 3 caracteres")]
-        [MaxLength (20, ErrorMessage = "Ingrese maximo 20 caracteres")]
+        [MinLength(3, ErrorMessage = "Ingrese minimo de 3 caracteres")]
+        [MaxLength(20, ErrorMessage = "Ingrese maximo 20 caracteres")]
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "Ingrese el precio")]
         [Range(0, 1000, ErrorMessage = "Ingrese un precio entre 0 y 1000")]
         public double Precio { get; set; }
-        public  Categoria Categorias { get; set; }
+        public Categoria Categorias { get; set; }
+
+        [Display(Name = "Imagen")]
+        public string UrlImagen { get; set; }
+
         public bool Activo { get; set; }
 
     }
