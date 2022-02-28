@@ -11,11 +11,12 @@ namespace FarmaStore.WebAdmin.Controllers
     {
 
         ProductosBL _productosBL;
-        private object _Categorias;
+        CategoriasBL _categoriasBL;
 
         public ProductosController()
         {
             _productosBL = new ProductosBL();
+            _categoriasBL = new CategoriasBL();
         }
         
 
@@ -32,6 +33,9 @@ namespace FarmaStore.WebAdmin.Controllers
         public ActionResult Crear()
         {
             var nuevoProducto = new Producto();
+            var categorias = _categoriasBL.ObtenerCategoria();
+
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
 
             return View(nuevoProducto);
         }
@@ -66,18 +70,42 @@ namespace FarmaStore.WebAdmin.Controllers
         public ActionResult Editar(int id)
         {
             var producto = _productosBL.ObtenerProducto(id);
+            var categorias = _categoriasBL.ObtenerCategoria();
 
-            return View();
+            ViewBag.CategoriaId =
+               new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
+
+            return View(producto);
 
         }
 
         [HttpPost]
-        public ActionResult Editar(Producto producto)
+        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen)
         {
-            _productosBL.GuardarProducto(producto);
+            if (ModelState.IsValid)
+            {
+                if (producto.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "Seleccione una categoria");
+                    return View(producto);
+                }
+
+                if (imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
+                }
+
+                _productosBL.GuardarProducto(producto);
 
             return RedirectToAction("Index");
 
+            }
+            var categorias = _categoriasBL.ObtenerCategoria();
+
+            ViewBag.CategoriaId =
+                new SelectList(categorias, "Id", "Descripcion");
+
+            return View(producto);
         }
         public ActionResult Detalle(int id)
         {

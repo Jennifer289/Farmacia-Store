@@ -32,7 +32,7 @@ namespace FarmaStore.BL
             }
             else
             {
-                var categoriaExistente = _contexto.Prooductos.Find(categoria.Id);
+                var categoriaExistente = _contexto.Categorias.Find(categoria.Id);
                 categoriaExistente.Descripcion = categoria.Descripcion;
                 
             }
