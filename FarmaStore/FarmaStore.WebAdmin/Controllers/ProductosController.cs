@@ -7,9 +7,10 @@ using System.Web.Mvc;
 
 namespace FarmaStore.WebAdmin.Controllers
 {
+    
     public class ProductosController : Controller
     {
-
+       
         ProductosBL _productosBL;
         CategoriasBL _categoriasBL;
 
@@ -47,7 +48,7 @@ namespace FarmaStore.WebAdmin.Controllers
             if (ModelState.IsValid)
             {
 
-                if (producto.categoriaId == 0)
+                if (producto.CategoriaId == 0)
                 {
                     ModelState.AddModelError("CategoriaId", "seleccione una categoria");
                     return View(producto);
@@ -63,6 +64,10 @@ namespace FarmaStore.WebAdmin.Controllers
                 return RedirectToAction("Index");
             }
 
+            var categorias = _categoriasBL.ObtenerCategoria();
+
+            ViewBag.CategoriaId =
+                new SelectList(categorias, "Id", "Descripcion");
 
             return View(producto);
         }
