@@ -4,7 +4,7 @@ using System.Web.Mvc;
 namespace FarmaStore.WebAdmin.Controllers
 {
 
-    [Authorize]
+    
     public class OrdenesController : Controller
     {
 

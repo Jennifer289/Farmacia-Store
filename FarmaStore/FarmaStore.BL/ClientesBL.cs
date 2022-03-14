@@ -36,10 +36,6 @@ namespace FarmaStore.BL
             return ListadeClientes;
         }
 
-        public static object ObtenerCliente()
-        {
-            throw new NotImplementedException();
-        }
 
         public void GuardarCliente(Cliente cliente)
         {

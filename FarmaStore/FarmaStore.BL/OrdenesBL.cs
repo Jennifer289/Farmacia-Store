@@ -67,7 +67,16 @@ namespace FarmaStore.BL
             _contexto.SaveChanges();
         }
 
-      
+        public void EliminarOrdenDetalle(int id)
+        {
+            var ordenDetalle = _contexto.OrdenDetalle.Find(id);
+            _contexto.OrdenDetalle.Remove(ordenDetalle);
+
+            var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
+            orden.Total = orden.Total - ordenDetalle.Total;
+
+            _contexto.SaveChanges();
+        }
     }
 
 }
