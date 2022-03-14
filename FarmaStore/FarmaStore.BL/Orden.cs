@@ -12,7 +12,7 @@ namespace FarmaStore.BL
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
         public DateTime Fecha { get; set; }
-        public Double Total { get; set; }
+        public double Total { get; set; }
         public bool Activo { get; set; }
 
         public List<OrdenDetalle> ListadeOdenDetalle { get; set; }
@@ -21,6 +21,8 @@ namespace FarmaStore.BL
         {
             Activo = true;
             Fecha = DateTime.Now;
+
+            ListadeOdenDetalle = new List<OrdenDetalle>();
         }
 
     }
@@ -31,7 +33,7 @@ namespace FarmaStore.BL
         public int OrdenId { get; set; }
         public Orden Orden { get; set; }
 
-        public int ProductoID { get; set; }
+        public int ProductoId { get; set; }
         public Producto Producto { get; set; }
 
         public int Cantidad { get; set; }

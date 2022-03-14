@@ -9,7 +9,7 @@ namespace FarmaStore.BL
     public class CategoriasBL
     {
         Contexto _contexto;
-        public List<Categoria> ListadeCategorias{ get; set; }
+        public List<Categoria> ListadeCategorias { get; set; }
 
         public CategoriasBL()
         {

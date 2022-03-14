@@ -150,6 +150,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdenesController.cs" />
+    <Compile Include="Controllers\OrdenesDetalleController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +181,10 @@
     <Content Include="Views\Categorias\Editar.cshtml" />
     <Content Include="Views\Categorias\Eliminar.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Ordenes\Index.cshtml" />
+    <Content Include="Views\Ordenes\Crear.cshtml" />
+    <Content Include="Views\Ordenes\Editar.cshtml" />
+    <Content Include="Views\OrdenDetalle\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,6 +197,7 @@
     <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Crear\" />
+    <Folder Include="Views\OrdenesDetalle\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FarmaStore.BL\FarmaStore.BL.csproj">

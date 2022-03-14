@@ -19,8 +19,19 @@ namespace FarmaStore.BL
          public List<Producto> ObtenerProductos()
         {
 
-            ListadeProductos = _contexto.Prooductos
+            ListadeProductos = _contexto.Productos
                 .Include("Categoria")
+            
+                .ToList();
+
+            return ListadeProductos;
+        }
+        public List<Producto> ObtenerProductosActivos()
+        {
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Descripcion)
                 .ToList();
 
             return ListadeProductos;
@@ -30,11 +41,11 @@ namespace FarmaStore.BL
         {
             if(producto.Id == 0 )
             {
-                _contexto.Prooductos.Add(producto);
+                _contexto.Productos.Add(producto);
 
             }else
             {
-                var productoExistente = _contexto.Prooductos.Find(producto.Id);
+                var productoExistente = _contexto.Productos.Find(producto.Id);
 
                 productoExistente.Descripcion = producto.Descripcion;
                 productoExistente.CategoriaId = producto.CategoriaId;
@@ -58,7 +69,7 @@ namespace FarmaStore.BL
 
         public Producto ObtenerProducto(int id)
         {
-            var producto = _contexto.Prooductos
+            var producto = _contexto.Productos
             .Include("Categoria").FirstOrDefault(p => p.Id == id);
 
             return producto;
@@ -66,9 +77,9 @@ namespace FarmaStore.BL
 
         public void EliminarProducto(int id)
         {
-            var producto = _contexto.Prooductos.Find(id);
+            var producto = _contexto.Productos.Find(id);
 
-            _contexto.Prooductos.Remove(producto);
+            _contexto.Productos.Remove(producto);
             _contexto.SaveChanges();
         }
 
