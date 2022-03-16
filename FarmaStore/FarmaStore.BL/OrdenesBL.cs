@@ -27,10 +27,19 @@ namespace FarmaStore.BL
 
             return ListadeOrdenes;
         }
+
         public List<OrdenDetalle> ObtenerOrdenDetalle(int ordenId)
         {
-            var listadeOrdenesDetalle = _contexto.OrdenDetalle
+            var listaOrdenesDetalle = _contexto.OrdenDetalle
                 .Include("Producto")
+                .Where(o => o.OrdenId == ordenId).ToList();
+
+            return listaOrdenesDetalle;
+        }
+
+        public List<OrdenDetalle> ObtenerOrdenesDetalle(int ordenId)
+        {
+            var listadeOrdenesDetalle = _contexto.OrdenDetalle
                 .Where(o => o.OrdenId == ordenId).ToList();
 
             return listadeOrdenesDetalle;
@@ -74,6 +83,21 @@ namespace FarmaStore.BL
 
             var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
             orden.Total = orden.Total - ordenDetalle.Total;
+
+            _contexto.SaveChanges();
+        }
+
+        public void GuardarOrdenDetalle(OrdenDetalle ordenDetalle)
+        {
+            var producto = _contexto.Productos.Find(ordenDetalle.ProductoId);
+
+            ordenDetalle.Precio = producto.Precio;
+            ordenDetalle.Total = ordenDetalle.Cantidad * ordenDetalle.Precio;
+
+            _contexto.OrdenDetalle.Add(ordenDetalle);
+
+            var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
+            orden.Total = orden.Total + ordenDetalle.Total;
 
             _contexto.SaveChanges();
         }

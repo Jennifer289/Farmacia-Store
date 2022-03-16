@@ -11,10 +11,12 @@ namespace FarmaStore.WebAdmin.Controllers
 
     {
         OrdenesBL _ordenBL;
+        ProductosBL _productoBL;
 
         public OrdenDetalleController()
         {
             _ordenBL = new OrdenesBL();
+            _productoBL = new ProductosBL();
 
         }
 
@@ -22,8 +24,43 @@ namespace FarmaStore.WebAdmin.Controllers
         public ActionResult Index(int id)
         {
             var orden = _ordenBL.ObtenerOrden(id);
+            orden.ListadeOdenDetalle = _ordenBL.ObtenerOrdenDetalle(id);
 
             return View(orden);
+        }
+
+        public ActionResult Crear(int id)
+        {
+            var nuevaOrdenDetalle = new OrdenDetalle();
+            nuevaOrdenDetalle.OrdenId = id;
+
+            var productos = _productoBL.ObtenerProductos();
+
+            ViewBag.ProductoId = new SelectList(productos, "Id", "Descripcion");
+
+            return View(nuevaOrdenDetalle);
+        }
+
+        [HttpPost]
+        public ActionResult Crear(OrdenDetalle ordenDetalle)
+        {
+            if(ModelState.IsValid)
+            {
+                if(ordenDetalle.ProductoId == 0)
+                {
+                    ModelState.AddModelError("ProductoId", "Seleccione un producto");
+                    return View(ordenDetalle);
+                }
+
+                _ordenBL.GuardarOrdenDetalle(ordenDetalle);
+                return RedirectToAction("Index", new { id = ordenDetalle.OrdenId } );
+            }
+            
+            var productos = _productoBL.ObtenerProductos();
+
+            ViewBag.ProductoId = new SelectList(productos, "Id", "Descripcion");
+
+            return View(ordenDetalle);
         }
     }
 }
