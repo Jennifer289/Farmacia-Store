@@ -7,7 +7,7 @@
 <h2> Detalle de la Orden No: @Model.Id</h2>
 
 <p>
-    @Html.ActionLink("Nuevo Producto", "Crear")
+    @Html.ActionLink("Nuevo Producto", "Crear", new { id = Model.Id })
 </p>
 <table class="table">
     <tr>
