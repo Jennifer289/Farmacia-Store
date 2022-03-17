@@ -92,7 +92,7 @@ namespace FarmaStore.BL
             var producto = _contexto.Productos.Find(ordenDetalle.ProductoId);
 
             ordenDetalle.Precio = producto.Precio;
-            ordenDetalle.Total = ordenDetalle.Cantidad * ordenDetalle.Precio;
+            ordenDetalle.Total = ordenDetalle.Cantidad *  ordenDetalle.Precio;
 
             _contexto.OrdenDetalle.Add(ordenDetalle);
 
