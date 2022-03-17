@@ -13,7 +13,7 @@ namespace FarmaStore.BL
 
         public OrdenesBL()
         {
-            _contexto = new BL.Contexto();
+            _contexto = new Contexto();
             ListadeOrdenes = new List<Orden>();
         }
 
