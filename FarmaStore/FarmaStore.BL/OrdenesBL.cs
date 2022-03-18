@@ -35,7 +35,7 @@ namespace FarmaStore.BL
                 .Where(o => o.OrdenId == ordenId).ToList();
 
             return listaOrdenesDetalle;
-        }
+        } 
 
         public List<OrdenDetalle> ObtenerOrdenesDetalle(int ordenId)
         {
