@@ -13,7 +13,7 @@ namespace FarmaStore.BL
 
         public OrdenesBL()
         {
-            _contexto = new BL.Contexto();
+            _contexto = new Contexto();
             ListadeOrdenes = new List<Orden>();
         }
 
@@ -35,7 +35,7 @@ namespace FarmaStore.BL
                 .Where(o => o.OrdenId == ordenId).ToList();
 
             return listaOrdenesDetalle;
-        }
+        } 
 
         public List<OrdenDetalle> ObtenerOrdenesDetalle(int ordenId)
         {
@@ -92,7 +92,7 @@ namespace FarmaStore.BL
             var producto = _contexto.Productos.Find(ordenDetalle.ProductoId);
 
             ordenDetalle.Precio = producto.Precio;
-            ordenDetalle.Total = ordenDetalle.Cantidad * ordenDetalle.Precio;
+            ordenDetalle.Total = ordenDetalle.Cantidad *  ordenDetalle.Precio;
 
             _contexto.OrdenDetalle.Add(ordenDetalle);
 

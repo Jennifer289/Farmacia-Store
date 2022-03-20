@@ -38,6 +38,6 @@ namespace FarmaStore.BL
 
         public int Cantidad { get; set; }
         public double Precio { get; set; }
-        public int Total { get; set; }
+        public double Total { get; set; }
     }
 }

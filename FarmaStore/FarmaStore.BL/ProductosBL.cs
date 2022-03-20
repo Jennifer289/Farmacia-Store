@@ -21,7 +21,8 @@ namespace FarmaStore.BL
 
             ListadeProductos = _contexto.Productos
                 .Include("Categoria")
-            
+                .OrderBy(r => r.Categoria.Descripcion)
+                .ThenBy(r => r.Descripcion)
                 .ToList();
 
             return ListadeProductos;
