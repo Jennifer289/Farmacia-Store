@@ -67,8 +67,8 @@ namespace FarmaStore.BL
         {
             var cliente = _contexto.Clientes.Find(id);
 
-            _contexto.Clientes.Remove(cliente);
-            _contexto.SaveChanges();
+            _contexto.Clientes.Remove(cliente);/////
+            _contexto.SaveChanges();////
         }
     }
 }
