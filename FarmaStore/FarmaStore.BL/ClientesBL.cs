@@ -19,9 +19,8 @@ namespace FarmaStore.BL
 
         public List<Cliente> ObtenerClientes()
         {
-            ListadeClientes = _contexto.Clientes
-                .OrderBy(r => r.Nombre)
-                .ToList();
+            ListadeClientes = _contexto.Clientes.ToList();
+               
 
             return ListadeClientes;
         }
@@ -30,7 +29,6 @@ namespace FarmaStore.BL
         {
             ListadeClientes = _contexto.Clientes
                 .Where(r => r.Activo == true)
-                .OrderBy(r => r.Nombre)
                 .ToList();
 
             return ListadeClientes;

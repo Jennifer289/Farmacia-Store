@@ -34,7 +34,7 @@ namespace FarmaStore.WebAdmin.Controllers
             var nuevaOrdenDetalle = new OrdenDetalle();
             nuevaOrdenDetalle.OrdenId = id;
 
-            var productos = _productoBL.ObtenerProductos();
+            var productos = _productoBL.ObtenerProductosActivos();
 
             ViewBag.ProductoId = new SelectList(productos, "Id", "Descripcion");
 
@@ -56,7 +56,7 @@ namespace FarmaStore.WebAdmin.Controllers
                 return RedirectToAction("Index", new { id = ordenDetalle.OrdenId } );
             }
             
-            var productos = _productoBL.ObtenerProductos();
+            var productos = _productoBL.ObtenerProductosActivos();
 
             ViewBag.ProductoId = new SelectList(productos, "Id", "Descripcion");
 
