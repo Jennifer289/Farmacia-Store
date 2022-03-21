@@ -210,6 +210,7 @@
     <Content Include="Views\Clientes\Detalle.cshtml" />
     <Content Include="Views\Clientes\Eliminar.cshtml" />
     <Content Include="Views\OrdenDetalle\Crear.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
