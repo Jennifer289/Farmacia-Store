@@ -20,7 +20,7 @@ namespace FarmaStore.WebAdmin.Controllers
             _productosBL = new ProductosBL();
             _categoriasBL = new CategoriasBL();
         }
-        
+        //Pruebas
 
 
         // GET: Productos
