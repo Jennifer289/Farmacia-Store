@@ -1,4 +1,6 @@
-﻿namespace FarmaStore.BL
+﻿using System.Data.Entity;
+
+namespace FarmaStore.BL
 {
     public class Datosdeinicio:CreateDatabaseIfNotExists<Contexto>
     {

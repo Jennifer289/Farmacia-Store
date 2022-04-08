@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FarmaStore.WebAdmin.Controllers
 {
+    [Authorize]
     public class ClientesController : Controller
     {
         ClienteBL _clientesBL;
